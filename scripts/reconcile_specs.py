@@ -12,8 +12,8 @@ from datetime import datetime
 from typing import Dict, List, Tuple
 import hashlib
 
-INCOMING_DIR = Path("docs/specs/_incoming")
-OUTPUT_DIR = Path("docs/specs")
+INCOMING_DIR = Path("specs/_incoming")
+OUTPUT_DIR = Path("specs")
 CONFLICTS_FILE = OUTPUT_DIR / "SPEC_CONFLICTS.md"
 
 def kebab_case(text: str) -> str:
@@ -158,7 +158,7 @@ def write_conflicts_file(conflicts: List[Dict]):
                 f.write(f"- **Conflict copy:** `{file_info['path']}`\n\n")
 
             f.write("**Action required:** Review versions and choose the correct one, ")
-            f.write(f"or merge manually into `docs/specs/{conflict['slug']}.md`\n\n")
+            f.write(f"or merge manually into `specs/{conflict['slug']}.md`\n\n")
             f.write("---\n\n")
 
 if __name__ == "__main__":

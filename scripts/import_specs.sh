@@ -9,7 +9,7 @@ echo ""
 # Configuration
 LOCAL_SPEC_PATHS="${LOCAL_SPEC_PATHS:-}"
 GITHUB_SPEC_URLS="${GITHUB_SPEC_URLS:-}"
-INCOMING_DIR="docs/specs/_incoming"
+INCOMING_DIR="specs/_incoming"
 LOCAL_INCOMING="$INCOMING_DIR/local"
 GITHUB_INCOMING="$INCOMING_DIR/github"
 
@@ -106,5 +106,5 @@ fi
 echo ""
 
 echo -e "${GREEN}✅ Spec import completed!${NC}"
-echo "Check docs/specs/ for reconciled specs"
+echo "Check specs/ for reconciled specs"
 echo "Check docs/specs_status.md for status overview"

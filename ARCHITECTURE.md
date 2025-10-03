@@ -3,6 +3,21 @@
 ## Overview
 Voygent MVP is built on a forked LibreChat foundation with minimal, controlled modifications to support AI-powered travel planning. The architecture emphasizes local→Docker→Render parity to ensure consistent behavior across all environments.
 
+## Specification-Driven Development
+
+This project uses **[GitHub Spec-Kit](https://github.com/github/spec-kit)** for structured, specification-driven development.
+
+### Specs Directory Structure
+```
+specs/
+├── _templates/       # Spec templates for this project
+├── _archive/         # Completed/deprecated specs
+├── _incoming/        # Import staging from local/GitHub sources
+└── [active-specs]/   # Current specifications
+```
+
+All features begin with a specification that answers the **critical path question** before implementation. See [SPEC_KIT.md](docs/SPEC_KIT.md) for details.
+
 ---
 
 ## System Components
@@ -286,8 +301,9 @@ See [SECURITY.md](SECURITY.md) for detailed policies.
 
 ## References
 
+- [Spec-Kit Guide](docs/SPEC_KIT.md) - Specification-driven development
+- [Spec Status](docs/specs_status.md) - Current specs overview
 - [Database Schema](docs/db/logging_schema.sql)
 - [System Prompts](docs/prompts/)
-- [Spec Status](docs/specs_status.md)
 - [Contributing Guide](CONTRIBUTING.md)
 - [Security Policy](SECURITY.md)

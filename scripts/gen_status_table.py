@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import Dict, List
 from datetime import datetime
 
-SPECS_DIR = Path("docs/specs")
+SPECS_DIR = Path("specs")
 OUTPUT_FILE = Path("docs/specs_status.md")
 
 def parse_frontmatter(content: str) -> Dict[str, str]:
