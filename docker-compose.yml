@@ -1,0 +1,73 @@
+version: '3.9'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: voygent-app
+    ports:
+      - "3008:3008"
+    environment:
+      - NODE_ENV=development
+      - DATABASE_URL=postgresql://voygent:voygent123@db:5432/voygent-prod
+      - REDIS_URL=redis://redis:6379
+    env_file:
+      - .env.shared
+      - .env.local
+    depends_on:
+      db:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    volumes:
+      - ./src:/app/src
+      - ./public:/app/public
+    networks:
+      - voygent-network
+    restart: unless-stopped
+
+  db:
+    image: pgvector/pgvector:pg15
+    container_name: voygent-db
+    environment:
+      - POSTGRES_USER=voygent
+      - POSTGRES_PASSWORD=voygent123
+      - POSTGRES_DB=voygent-prod
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+      - ./docs/db/logging_schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+    networks:
+      - voygent-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U voygent -d voygent-prod"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+
+  redis:
+    image: redis:7-alpine
+    container_name: voygent-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - voygent-network
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+    restart: unless-stopped
+
+volumes:
+  postgres-data:
+  redis-data:
+
+networks:
+  voygent-network:
+    driver: bridge

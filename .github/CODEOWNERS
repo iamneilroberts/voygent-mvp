@@ -1,0 +1,27 @@
+# Voygent Code Owners
+# These users will be automatically requested for review when someone opens a pull request
+
+# Global owners
+* @iamneilroberts
+
+# Documentation
+/docs/ @iamneilroberts
+/CLAUDE.md @iamneilroberts
+/ROADMAP.md @iamneilroberts
+/ARCHITECTURE.md @iamneilroberts
+/CONTRIBUTING.md @iamneilroberts
+/SECURITY.md @iamneilroberts
+
+# Scripts
+/scripts/ @iamneilroberts
+
+# CI/CD
+/.github/ @iamneilroberts
+
+# Docker
+/Dockerfile @iamneilroberts
+/docker-compose.yml @iamneilroberts
+
+# Environment configuration
+/.env.shared.example @iamneilroberts
+/.env.local.example @iamneilroberts

@@ -1,0 +1,29 @@
+{
+  "name": "voygent-mvp",
+  "version": "0.1.0",
+  "description": "Voygent MVP - AI-powered travel planning platform",
+  "main": "dist/server.js",
+  "scripts": {
+    "dev": "echo 'Development server not yet configured'",
+    "build": "echo 'Build script not yet configured'",
+    "start": "echo 'Start script not yet configured'",
+    "lint": "echo 'Lint script not yet configured'",
+    "type-check": "echo 'Type check script not yet configured'",
+    "test": "echo 'Test script not yet configured'"
+  },
+  "keywords": [
+    "travel",
+    "ai",
+    "planning",
+    "librechat"
+  ],
+  "author": "Neil Roberts",
+  "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/iamneilroberts/voygent-mvp.git"
+  }
+}
